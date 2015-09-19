@@ -1,0 +1,40 @@
+<div class="surprise">
+  <div class="btn prize-level">
+    <!-- <button type="button" class="btn btn-primary btn-level">一等奖</button>
+	  <button type="button" class="btn btn-primary btn-level">二等奖</button>
+	  <button type="button" class="btn btn-primary btn-level">三等奖</button> -->
+	  第20届Rails Girls 活动抽奖
+  </div>
+  <div class="prize-go">
+    <div class="prize-left">
+    	<div class="prize-con">
+        <button class="btn btn-primary prize-btn">开始</button>
+        <button class="btn btn-primary prize-btn">结束</button>
+    	</div>
+    	<div class="prize-person"></div>
+     
+    </div>
+    <div class="prize-right">
+    	<table class="table table-hover">
+    	  <tr>
+					<th>奖品等级</th>
+					<th>奖品内容</th>
+					<th>中奖者</th>
+				</tr>
+	      <% @prizes.each do |prize| %>
+	      <tr>
+		      <td class="level"><%= prize.prize_level%></td>
+		      <td class="description"><%= prize.description %></td>
+	      </tr>
+	     <% end %>
+     </table>
+    </div>
+  </div>
+  <div class="image">
+  	<% @users.each do |user| %>
+		  <div class="user-image">
+	      <%= image_tag(user.picture_url, :width =>120, :height=>120) if user.picture.present? %>
+		  </div>
+		<% end %>
+  </div>
+</div>
